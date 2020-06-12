@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"dev.hanselwei","l":"JavaMP3Player"},{"p":"dev.hanselwei.Sound","l":"MP3Player"}]

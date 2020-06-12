@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"dev.hanselwei","c":"JavaMP3Player","l":"JavaMP3Player()","url":"%3Cinit%3E()"},{"p":"dev.hanselwei","c":"JavaMP3Player","l":"main(String[])","url":"main(java.lang.String[])"},{"p":"dev.hanselwei.Sound","c":"MP3Player","l":"MP3Player(String)","url":"%3Cinit%3E(java.lang.String)"}]
