@@ -1,3 +1,5 @@
+package dev.hanselwei;
+
 import dev.hanselwei.Sound.MP3Player;
 
 import javax.sound.sampled.UnsupportedAudioFileException;
@@ -6,7 +8,7 @@ import java.io.IOException;
 /**
  * Sample implementation of mp3spi main
  */
-public class Main {
+public class JavaMP3Player {
 
     private static String groovyMP3Example = "resources/example.mp3";
 

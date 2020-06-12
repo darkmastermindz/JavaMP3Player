@@ -26,3 +26,8 @@ jar {
         configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
     }
 }
+
+task(runMain, dependsOn: 'classes', type: JavaExec) {
+    main = 'dev.hanselwei.JavaMP3Player'
+    classpath = sourceSets.main.runtimeClasspath
+}

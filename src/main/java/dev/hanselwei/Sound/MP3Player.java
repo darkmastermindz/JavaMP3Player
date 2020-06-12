@@ -22,15 +22,17 @@ public class MP3Player {
             AudioFileFormat baseFileFormat = new MpegAudioFileReader().getAudioFileFormat(file);
             Map properties = baseFileFormat.properties();
             Long duration = (Long) properties.get("duration");
-            System.out.println("Hello");
 
-            AudioInputStream rawInput = AudioSystem.getAudioInputStream(file);
-            AudioInputStream decodedInput = null;
+            System.out.println("** Running dev.hanselwei.Sound : MP3Player : 1.0.0.SNAPSHOT **");
 
-            AudioFormat baseFormat = rawInput.getFormat();
+            // sourceStream – the stream to be converted
+            AudioInputStream sourceStream = AudioSystem.getAudioInputStream(file);
+            AudioInputStream convertedInput = null;
 
-            // Encode MP3
-            AudioFormat encodeTargetFormat = new AudioFormat(AudioFormat.Encoding.PCM_SIGNED,
+            AudioFormat baseFormat = sourceStream.getFormat();
+
+            // targetFormat – the desired audio format after conversion
+            AudioFormat targetFormat = new AudioFormat(AudioFormat.Encoding.PCM_SIGNED,
                     baseFormat.getSampleRate(),
                     16,
                     baseFormat.getChannels(),
@@ -38,11 +40,13 @@ public class MP3Player {
                     baseFormat.getSampleRate(),
                     false);
 
-            decodedInput = AudioSystem.getAudioInputStream(encodeTargetFormat, rawInput);
 
-            // Play now.
-            rawPlay(encodeTargetFormat, decodedInput);
-            rawInput.close();
+            convertedInput = AudioSystem.getAudioInputStream(targetFormat, sourceStream);
+
+            // Play now
+            System.out.println("\n** Now Playing... " + filePath + " **\n");
+            rawPlay(targetFormat, convertedInput);
+            sourceStream.close();
         } catch (Exception e)
         {
             //Handle exception.
@@ -55,12 +59,12 @@ public class MP3Player {
 
     /**
      * RawPlay plays the decoded audio
-     * @param encodeTargetFormat encodeTargetFormat
-     * @param decodedInput decodedInput
+     * @param targetFormat targetFormat
+     * @param convertedInput convertedInput
      * @throws IOException File exception
      * @throws LineUnavailableException Line not available
      */
-    private void rawPlay(AudioFormat targetFormat, AudioInputStream decodedInput) throws IOException, LineUnavailableException
+    private void rawPlay(AudioFormat targetFormat, AudioInputStream convertedInput) throws IOException, LineUnavailableException
     {
         byte[] data = new byte[4096];
         SourceDataLine line = getLine(targetFormat);
@@ -71,14 +75,14 @@ public class MP3Player {
             int nBytesRead = 0, nBytesWritten = 0;
             while (nBytesRead != -1)
             {
-                nBytesRead = decodedInput.read(data, 0, data.length);
+                nBytesRead = convertedInput.read(data, 0, data.length);
                 if (nBytesRead != -1) nBytesWritten = line.write(data,0, nBytesRead);
             }
             // Stop
             line.drain();
             line.stop();
             line.close();
-            decodedInput.close();
+            convertedInput.close();
         }
     }
 
