@@ -10,5 +10,5 @@ JavaDoc: https://darkmastermindz.github.io/JavaMP3Player/javadoc/
 2. Navigate into project
 `cd JavaMP3Player`
 
-3. Run gradle script to build dependencies and execute main class
+3. Run build.gradle script to build dependencies and execute main class
 `gradlew build runMain`
