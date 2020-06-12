@@ -1,7 +1,7 @@
 # JavaMP3Player
 Demo implementation project of JavaMP3Player implemented with jlayer and mp3spi
 
-JavaDocs: https://darkmastermindz.github.io/JavaMP3Player/javadoc/
+JavaDoc: https://darkmastermindz.github.io/JavaMP3Player/javadoc/
 
 # Getting Started
 1. Clone Project
