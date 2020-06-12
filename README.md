@@ -3,7 +3,7 @@ Demo 'hello world' JavaMP3Player project implemented with external jlayer and mp
 
 JavaDoc: https://darkmastermindz.github.io/JavaMP3Player/javadoc/
 
-# Getting Started
+## Getting Started
 1. Clone Project
 `git clone https://github.com/darkmastermindz/JavaMP3Player.git`
 
