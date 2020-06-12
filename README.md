@@ -8,5 +8,5 @@ Demo implementation project of JavaMP3Player implemented with jlayer and mp3spi
 2. Navigate into project
 `cd JavaMP3Player`
 
-3. Run gradle script to build dependencies
+3. Run gradle script to build dependencies and execute main class
 `gradlew build runMain`
