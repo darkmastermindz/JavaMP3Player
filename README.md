@@ -9,4 +9,4 @@ Demo implementation project of JavaMP3Player implemented with jlayer and mp3spi
 `cd JavaMP3Player`
 
 3. Run gradle script to build dependencies
-`./gradlew build`
+`./gradlew build runMain`
